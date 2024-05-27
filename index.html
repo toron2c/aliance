@@ -6,6 +6,7 @@
 		<link rel="stylesheet" href="./css/index.css" />
 		<link rel="preload" href="fonts/WorkSans-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" href="images/shutterstock_795013699-1.webp" as="image" />
+    <link rel="preload" href="images/article_img.webp" as="image" />
 		<title>Aliance</title>
   </head>
   <body>
@@ -150,12 +151,15 @@
         </p>
       </section>
       <section class="mission">
-				<span class="mission__subtitle subtitle">what we do</span>
-        <h1 class="mission__title title">Proffessional moving services</h1>
-        <p class="mission__text text">
-          From cross-country moves to anywhere in between, distance moving can
-          be simple. We’ll help you get there
-        </p>
+				<div class="head-block head-block--mission">
+					<div>
+						<span class="head-block__subtitle">what we do</span>
+						<h1 class="head-block__title">Proffessional moving services</h1>
+						<p class="mission__text main__text">
+							From cross-country moves to anywhere in between, distance moving can
+							be simple. We’ll help you get there
+						</p>
+					</div>
       </section>
       <section class="services">
         <div class="services__list">
@@ -166,7 +170,7 @@
 							</svg>
 						</div>
             <h3 class="services__item-title title">Residential Moving</h3>
-            <p class="services__item-text text">
+            <p class="services__item-text main__text">
               Managing every detail, big or small, to help you have the
               smoothest move possible. We’ll help you arrive home
             </p>
@@ -178,7 +182,7 @@
 							</svg>
 						</div>
             <h3 class="services__item-title title">Commerical Moving</h3>
-            <p class="services__item-text text">
+            <p class="services__item-text main__text">
               Fast & efficient moving for businesses, while ensuring careful
               handling of equipment. We’ll support your business <br> venture
             </p>
@@ -192,7 +196,7 @@
             <h3 class="services__item-title title">
               Packing and Unpacking services
 						</h3>
-            <p class="services__item-text text">
+            <p class="services__item-text main__text">
               Careful packing, crating, wrapping, and unpacking so you won’t
               have to worry. We’ll organize the moving parts
             </p>
@@ -206,7 +210,7 @@
             <h3 class="services__item-title title">
               Furniture disassembly service
 						</h3>
-            <p class="services__item-text text">
+            <p class="services__item-text main__text">
               Servicing your appliances, electronics, over-sized furniture, and
               more. We’ll care for your valuables
             </p>
@@ -218,7 +222,7 @@
 							</svg>
 						</div>
             <h3 class="services__item-title title">Long-Distance Movers</h3>
-            <p class="services__item-text text">
+            <p class="services__item-text main__text">
               From cross-country moves to anywhere in between, distance moving
               can be simple. We’ll help you get there
             </p>
@@ -230,7 +234,7 @@
 							</svg>
 						</div>
             <h3 class="services__item-title title">Storage Units</h3>
-            <p class="services__item-text text">
+            <p class="services__item-text main__text">
               Climate controlled facilities to meet any of your storage needs.
               We’ll keep your items safe
             </p>
@@ -240,9 +244,13 @@
       <section class="contact">
 			
 					<div class="contact__address">
-						<span class="contact__subtitle subtitle">we are local</span>
-						<h2 class="contact__title">We proudly serve the Chicagoland area</h2>
-						<p class="contact__text text">
+						<div class="head-block">
+							<div>
+								<span class="head-block__subtitle">we are local</span>
+								<h2 class="head-block__title">We proudly serve the Chicagoland area</h2>
+							</div>
+						</div>
+						<p class="contact__text main__text">
 							Alliance Moving & Storage is a family-operated moving company based
 							in Rolling Meadows. Our mission is to provide professional,
 							affordable, and reliable moving
@@ -252,12 +260,12 @@
 								<svg class="contact__icon">
 									<use xlink:href="#icon-geo"></use>
 								</svg>
-								<span>3201 tollview drive rolling meadows, il 60008</span></li>
+								<address>3201 tollview drive rolling meadows, il 60008</address></li>
 							<li class="contact__item">
 								<svg class="contact__icon">
 									<use xlink:href="#icon-geo"></use>
 								</svg>
-								<span>4305 n. lincoln ave chicago, il 606184305 n. lincoln ave chicago, il 60618</span></li>
+								<address>4305 n. lincoln ave chicago, il 606184305 n. lincoln ave chicago, il 60618</address></li>
 							<li class="contact__item">
 								<svg class="contact__icon phone">
 									<use xlink:href="#icon-phone"></use>
@@ -266,79 +274,87 @@
 						</ul>
 					</div>
 					<div class="contact__form">
-						<form>
-							<p class="contact__title">Get In Touch</p>
-								<div class="contact__group">
-									<div class="contact__field">
+						<form class="form">
+							<p class="form__title contact__title">Get In Touch</p>
+								<div class="form__group">
+									<div class="form__field">
 										<label for="name">
-											Full Name
+											<div class="form__label">Full Name</div>
 										</label>
-										<input type="text" name="name" id="name"/>
+										<input class="form__input" required type="text" name="name" id="name"/>
 									</div>
-									<div class="contact__field">
+									<div class="form__field">
 										<label for="phone">
-											Phone
+											<div class="form__label">Phone</div>
 										</label>
-										<input type="tel" placeholder="---_---_----" name="phone" id="phone"/>
+										<input class="form__input" required ="tel" placeholder="---_---_----" name="phone" id="phone"/>
 									</div>
 								</div>
-								<div class="contact__field">
+								<div class="form__field">
 									<label for="email">
-										Email
+										<div class="form__label">Email</div>
 									</label>
-									<input type="email" name="email" id="email"/>
+									<input class="form__input" required type="email" name="email" id="email"/>
 								</div>
-							<div class="contact__field">
+							<div class="form__field">
 								<label for="notes">
-									Notes
+									<div class="form__label">Notes</div>
 								</label>
-								<textarea name="notes" id="notes"></textarea>
+								<textarea class="form__textarea" name="notes" id="notes"></textarea>
 							</div>
-							<button type="submit" class="contact__button">Submit</button>
+							<button type="submit" class="form__button">Submit</button>
 						</form>
 					</div>
 				
 				
       </section>
 			<section class="maps">
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2284.36182338651!2d-88.01172864136676!3d42.05496297027376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880faffc275b6ded%3A0x2f27f0c8c6a84d96!2sEMH%20Motors!5e0!3m2!1sen!2sca!4v1716663198930!5m2!1sen!2sca"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1612.4318467661892!2d-88.291076972953!3d42.16712555301511!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880f0db687883bdf%3A0x5427cb4ff5cc0007!2zMjAgVyBBbGdvbnF1aW4gUmQsIEFsZ29ucXVpbiwgSUwgNjAxMDIsINCh0KjQkA!5e0!3m2!1sru!2sca!4v1716799821466!5m2!1sru!2sca"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 			</section>
 			<section class="blog">
-				<div class="blog__head">
-					<h2 class="blog__title">Our latest moving tips</h2>
-					<button class="blog__button">View All</button>
-				</div>
+				<div class="head-block head-block--blog">
+					<div>
+						<span class="head-block__subtitle">blog</span>
+						<h2 class="head-block__title">Our latest moving tips</h2>
+					</div>
+					<div>
+						<button class="blog__button">View All</button>
+					</div>
+					</div>
 				<div class="blog__list">
 				<article class="blog__item">
-					<img src="" alt="article image"/>
-					<span class="blog__item-date"><time datetime="2021-12-16">December 16, 21</time></span>
+					<img width="429" height="295" src="./images/article_img.webp" alt="article image"/>
+					<p class="blog__item-date"><time datetime="2021-12-16">December 16, 21</time></p>
 					<h3 class="blog__item-title">How to move during COVID</h3>
-					<p class="blog__item-text">It depends on the size of your room It depends on the size of your room It depends on the size of your room </p>
+					<p class="main__text main__text--blog">It depends on the size of your room It depends on the size of your room It depends on the size of your room </p>
 				</article>
 				<article class="blog__item">
-					<img src="" alt="article image"/>
-					<span class="blog__item-date"><time datetime="2021-12-16">December 16, 21</time></span>
+					<img width="429" height="295" src="./images/article_img.webp" alt="article image"/>
+					<p class="blog__item-date"><time datetime="2021-12-16">December 16, 21</time></p>
 					<h3 class="blog__item-title">How to move during COVID</h3>
-					<p class="blog__item-text">It depends on the size of your room It depends on the size of your room It depends on the size of your room </p>
+					<p class="main__text main__text--blog">It depends on the size of your room It depends on the size of your room It depends on the size of your room </p>
 				</article>
 				<article class="blog__item">
-					<img src="" alt="article image"/>
-					<span class="blog__item-date"><time datetime="2021-12-16">December 16, 21</time></span>
+					<img width="429" height="295" src="./images/article_img.webp" alt="article image"/>
+					<p class="blog__item-date"><time datetime="2021-12-16">December 16, 21</time></p>
 					<h3 class="blog__item-title">How to move during COVID</h3>
-					<p class="blog__item-text">It depends on the size of your room It depends on the size of your room It depends on the size of your room </p>
+					<p class="main__text main__text--blog">It depends on the size of your room It depends on the size of your room It depends on the size of your room </p>
 				</article>
 				</div>
 			</section>
     </main>
     <footer class="footer">
 			<div class="footer__content">
-				<div class="footer__copy">© Alliance Moving And Storage. All Rights Reserved</div>
-				<div class="footer__links">
-					<a href="#">Privacy Policy</a>
-					<a href="#">Consumer Information</a>
+				<div class="footer__left">
+					<div class="footer__text">© Alliance Moving And Storage. All Rights Reserved</div>
+					<div class="footer__links">
+						<a href="#">Privacy Policy | Consumer Information</a>
+					</div>
 				</div>
-				<div class="footer_corp">ITLL MC: 214854 - USDOT: 2882675</div>
-				<div class="footer_madeby">Made by Comrade</div>
+				<div class="footer__right">
+					<div class="footer__text">ITLL MC: 214854 - USDOT: 2882675</div>
+					<div class="footer__text">Made by Comrade</div>
+				</div>
 			</div>
 		</footer>
   </body>
