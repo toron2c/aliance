@@ -15,19 +15,19 @@
 /* fonts */
 @font-face {
 	font-family: 'Work Sans';
-	src: url('/fonts/WorkSans-VariableFont_wght.woff2');
+	src: url('../fonts/WorkSans-VariableFont_wght.woff2');
 	font-weight: 400;
 	font-style: normal;
 }
 @font-face {
 	font-family: 'Work Sans';
-	src: url('/fonts/WorkSans-VariableFont_wght.woff2');
+	src: url('../fonts/WorkSans-VariableFont_wght.woff2');
 	font-weight: 500;
 	font-style: normal;
 }
 @font-face {
 	font-family: 'Work Sans';
-	src: url('/fonts/WorkSans-VariableFont_wght.woff2');
+	src: url('../fonts/WorkSans-VariableFont_wght.woff2');
 	font-weight: 600;
 	font-style: normal;
 }
@@ -135,7 +135,7 @@ a {
 .intro {
 	width: 100%;
 	height: 687px;
-	background: url(/images/shutterstock_795013699-1.webp);
+	background: url(../images/shutterstock_795013699-1.webp);
 	background-size: cover;
 	display: flex;
 	flex-direction:column;
