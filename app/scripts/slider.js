@@ -7,9 +7,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function showSlide(index) {
       const totalItems = items.length;
-
       if (index >= totalItems) {
         currentPage = 0;
+				
       } else if (index < 0) {
         currentPage = totalItems - 1;
       } else {
@@ -39,5 +39,5 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   initializeSlider('services');
-  initializeSlider('blogs');
+  initializeSlider('blogs')
 });
