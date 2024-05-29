@@ -1,14 +1,21 @@
-const {src, dest, watch, parallel} = require('gulp');
-const cssbeautify = require('gulp-cssbeautify');
-const browserSync = require('browser-sync').create();
+import gulp from 'gulp';
+import imagemin from 'gulp-imagemin';
+import plumber from 'gulp-plumber';
+import mozjpeg from 'imagemin-mozjpeg';
+import optipng from 'imagemin-optipng';
+import svgo from 'imagemin-svgo';
+
+import cssbeautify from 'gulp-cssbeautify'
+import browserSync from 'browser-sync'
+
 
 function styles() {
-	return src('./app/css/index.css')
+	return gulp.src('./app/css/index.css')
 	.pipe(cssbeautify({
 		indent: '  ',
 		autosemicolon: true
 	}))
-	.pipe(dest('./dist/css'))
+	.pipe(gulp.dest('./dist/css'))
 	.pipe(browserSync.stream())
 }
 function scripts() {
@@ -23,6 +30,15 @@ function watcher() {
 	watch('./app/*.html').on('change', browserSync.reload)
 }
 
+export function images() {
+	return gulp.src(['app/images/*.*'])
+	.pipe(plumber()) // Обработка ошибок
+	.pipe(imagemin())
+	.pipe(gulp.dest('dist/images/'));
+}
+
+
+
 function browsersync() {
 	browserSync.init({
 		server: {
@@ -36,10 +52,4 @@ function build() {
 	.pipe(dest('./dist/'))
 }
 
-exports.styles = styles;
-exports.scripts = scripts;
-exports.watcher = watcher;
-exports.browsersync = browsersync;
-exports.build = build;
-
-exports.default = parallel(styles, scripts, browsersync, watcher)
+export {images as default}
