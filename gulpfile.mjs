@@ -1,55 +1,53 @@
-import gulp from 'gulp';
-import imagemin from 'gulp-imagemin';
-import plumber from 'gulp-plumber';
-import mozjpeg from 'imagemin-mozjpeg';
-import optipng from 'imagemin-optipng';
-import svgo from 'imagemin-svgo';
+import gulp from 'gulp'
+import {deleteAsync} from 'del'
+import imagemin from 'gulp-image';
+import deploy from './gh-pages.mjs';
 
-import cssbeautify from 'gulp-cssbeautify'
-import browserSync from 'browser-sync'
+const paths = {
+  html: './app/*.html',
+  css: './app/css/index.css',
+  images: './app/images/*.*',
+  fonts: './app/fonts/*.*',
+  scripts: './app/scripts/*.js',
+  dest: './dist'
+};
 
-
-function styles() {
-	return gulp.src('./app/css/index.css')
-	.pipe(cssbeautify({
-		indent: '  ',
-		autosemicolon: true
-	}))
-	.pipe(gulp.dest('./dist/css'))
-	.pipe(browserSync.stream())
-}
-function scripts() {
-	return src(['./app/scripts/*.js'])
-		.pipe(dest('./dist/scripts/'))
-		.pipe(browserSync.stream())
+export async function clean() {
+  return await deleteAsync([paths.dest]);
 }
 
-function watcher() {
-	watch('./app/css/*.css', styles)
-	watch('./app/scripts/*.js', scripts)
-	watch('./app/*.html').on('change', browserSync.reload)
+export function copyHtml() {
+  return gulp.src(paths.html, { base: 'app' })
+    .pipe(gulp.dest(paths.dest));
 }
 
-export function images() {
-	return gulp.src(['app/images/*.*'])
-	.pipe(plumber()) // Обработка ошибок
-	.pipe(imagemin())
-	.pipe(gulp.dest('dist/images/'));
+export function copyCss() {
+  return gulp.src(paths.css, { base: 'app' })
+    .pipe(gulp.dest(paths.dest));
 }
 
-
-
-function browsersync() {
-	browserSync.init({
-		server: {
-				baseDir: "app/"
-		}
-});
+export function copyImages() {
+  return gulp.src(paths.images, { base: 'app' })
+		.pipe(imagemin())
+    .pipe(gulp.dest(paths.dest));
 }
 
-function build() {
-	return src(['./app/*.html', './app/css/index.css', './app/images/*.*', './app/fonts/*.*', './app/scripts/*.js'], {base: 'app'})
-	.pipe(dest('./dist/'))
+export function copyFonts() {
+  return gulp.src(paths.fonts, { base: 'app' })
+    .pipe(gulp.dest(paths.dest));
 }
 
-export {images as default}
+export function copyScripts() {
+  return gulp.src(paths.scripts, { base: 'app' })
+    .pipe(gulp.dest(paths.dest));
+}
+
+const build = gulp.series(
+  clean,
+  gulp.parallel(copyHtml, copyCss, copyImages, copyFonts, copyScripts)
+);
+
+
+export { build, deploy };
+export default build;
+
